@@ -15,12 +15,12 @@ async function fetchUserData (){
         displayUserData(users, dataContainer);
 
     } catch(error){
+        dataContainer.innerHTML = '';
         dataContainer.textContent = 'Failed to load userData:' + error.message;
     }   
 }
- function displayUserData(users, dataContainer){
+   function displayUserData(users, dataContainer) {
     dataContainer.innerHTML = '';
-
     //create a <ul> element
     const userList = document.createElement('ul');
 
@@ -33,9 +33,10 @@ async function fetchUserData (){
 
     //append the userlist to datacontainer
     dataContainer.appendChild(userList);
- }
 
+   }
  // invoke fetchUserData when DOM content is fully loaded
     document.addEventListener('DOMContentLoaded',() => {
         fetchUserData();
+
     });
